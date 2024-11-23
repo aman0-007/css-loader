@@ -1,0 +1,51 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    position: relative;
+}
+
+.text-container {
+    position: absolute;
+    display: flex;
+    font-size: 2.5rem; /* Slightly smaller font size */
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.letter {
+    position: absolute;
+    opacity: 0; /* Ensure letters are hidden initially */
+    transform: scale(5); /* Letters start large and shrink into place */
+    animation: moveAndScale 2s ease forwards;
+}
+
+/* Animation for letters */
+@keyframes moveAndScale {
+    0% {
+        opacity: 0;
+        transform: scale(5);
+        left: var(--random-x); /* Start at a random X position */
+        top: var(--random-y); /* Start at a random Y position */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End at normal size */
+        left: var(--final-x); /* Align to final X position */
+        top: var(--final-y); /* Align to final Y position */
+    }
+}
+
